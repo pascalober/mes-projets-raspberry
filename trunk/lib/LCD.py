@@ -8,6 +8,8 @@ import threading
 import RPi.GPIO as GPIO
 from time import sleep
 
+__all__ = ['HD44780']
+
 class HD44780(threading.Thread):
 	######################
 	# Variable Shared    #
@@ -44,6 +46,7 @@ class HD44780(threading.Thread):
 				self.currentmessage = self.message
 				self.LcdMessage()
 			sleep(0.1)
+		self.__del__()
  
 	######################
 	# Arret du Thread    # 
@@ -133,8 +136,8 @@ class HD44780(threading.Thread):
 		self.message = text.ljust(self.lcd_width," ")
 
 	def __del__(self):
-		GPIO.output(self.pin_rs, False)
-		GPIO.output(self.pin_e,  False)
-		for pin in self.pins_db:
-			GPIO.output(pin, False)
+		#GPIO.output(self.pin_rs, False)
+		#GPIO.output(self.pin_e,  False)
+		#for pin in self.pins_db:
+		#	GPIO.output(pin, False)
 		GPIO.cleanup()
