@@ -8,12 +8,10 @@
 import threading
 import RPi.GPIO as GPIO
 from time import sleep
-import subprocess
 import signal
 import sys
 sys.path.append('lib')
-#from LCD import *
-import LCD
+from LCD import *
 
 class Cligno(threading.Thread):
 	def __init__(self):
