@@ -38,18 +38,18 @@ class GUI(threading.Thread):
 		self.ScreenMaestro.Media = "Radio"
 		self.lcd.LcdSetMessage( self.ScreenMaestro.getText() )
 
-		self.button1count = 0
 		self.bouton1 = Button( 4, self.Button1Pressed )
 		self.bouton1.start()
 		
-		self.button2count = 0
 		self.bouton2 = Button( 17, self.Button2Pressed )
 		self.bouton2.start()
 		
-		self.button3count = 0
 		self.bouton3 = Button( 27, self.Button3Pressed )
 		self.bouton3.start()
 		
+    self.bouton4 = Button( 22, self.Button4Pressed )
+		self.bouton4.start() 
+      
 		threading.Thread.__init__(self)
 
 	def Stop(self):
@@ -97,9 +97,10 @@ class GUI(threading.Thread):
 
 
 	def Button3Pressed(self):
-		self.button3count += 1
-		print("Button Pressed : %d" % self.button3count )
-		self.lcd.LcdSetMessage( "Button3Press:%d" % self.button3count )	
+		 os.system("mpc volume -10")
+
+	def Button4Pressed(self):
+		 os.system("mpc volume +10")
 
 
 if __name__ == '__main__':
