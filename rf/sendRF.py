@@ -45,7 +45,7 @@ if __name__ == "__main__" :
 	
 	#cycles_perdus = 2
 	tempsPerdu = 0
-	dataPin    = 18
+	dataPin    = 17
 	nb_retry   = 4
 	# Nombre de secondes d'attente entre deux retry
 	attenteEntrePaquets = 0.075
